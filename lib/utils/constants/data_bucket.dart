@@ -17,4 +17,3 @@ List<Stroke> redoStack = [];
 Stroke? currentStroke;
 
 bool isDrawing = false;
-

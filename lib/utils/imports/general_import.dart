@@ -6,3 +6,4 @@ export 'package:drawing_app/utils/imports/model_import.dart';
 export 'package:drawing_app/utils/imports/reusable_widgets_import.dart';
 export 'package:drawing_app/utils/imports/functions_import.dart';
 export 'package:drawing_app/utils/imports/constants_import.dart';
+export 'package:drawing_app/utils/imports/dart_import.dart';

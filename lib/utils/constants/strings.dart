@@ -7,6 +7,9 @@ String eraserLabel = "Switch to Eraser";
 
 String undoLabel = "Undo";
 String redoLabel = "Redo";
+String saveLabel = "Save";
+
+String pencilStrokeLabel = "Pencil Stroke";
 
 String clearBoardLabel = "Clear Board";
 

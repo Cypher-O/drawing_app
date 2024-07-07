@@ -3,8 +3,8 @@ import 'package:drawing_app/utils/imports/flutter_import.dart';
 class AppColors {
   static Color whiteColor = Colors.white;
   static Color blackColor = Colors.black;
-  // Color selectedColor = Colors.black;
-  // Color selectedBackgroundColor = Colors.white;
+// Color selectedColor = Colors.black;
+// Color selectedBackgroundColor = Colors.white;
 }
 
 final List<Color> colors = [

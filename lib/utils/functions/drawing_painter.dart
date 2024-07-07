@@ -7,12 +7,20 @@ class DrawingPainter extends CustomPainter {
   final bool isEraserMode;
   final Offset? currentPosition;
 
-  DrawingPainter(this.strokes, this.currentStroke, this.backgroundColor,
-      this.isEraserMode, this.currentPosition);
+  DrawingPainter(
+    this.strokes,
+    this.currentStroke,
+    this.backgroundColor,
+    this.isEraserMode,
+    this.currentPosition,
+  );
 
   @override
   void paint(Canvas canvas, Size size) {
-    canvas.drawColor(backgroundColor, BlendMode.srcOver);
+    canvas.drawColor(
+      backgroundColor,
+      BlendMode.srcOver,
+    );
 
     for (var stroke in [
       ...strokes,
@@ -27,11 +35,20 @@ class DrawingPainter extends CustomPainter {
       for (var segment in stroke.segments) {
         if (segment.length > 1) {
           final path = Path();
-          path.moveTo(segment.first.dx, segment.first.dy);
+          path.moveTo(
+            segment.first.dx,
+            segment.first.dy,
+          );
           for (int i = 1; i < segment.length; i++) {
-            path.lineTo(segment[i].dx, segment[i].dy);
+            path.lineTo(
+              segment[i].dx,
+              segment[i].dy,
+            );
           }
-          canvas.drawPath(path, paint);
+          canvas.drawPath(
+            path,
+            paint,
+          );
         }
       }
     }
@@ -41,7 +58,11 @@ class DrawingPainter extends CustomPainter {
         ..color = Colors.red.withOpacity(0.5)
         ..style = PaintingStyle.stroke
         ..strokeWidth = 2;
-      canvas.drawCircle(currentPosition!, 20, eraserPaint);
+      canvas.drawCircle(
+        currentPosition!,
+        20,
+        eraserPaint,
+      );
     }
   }
 

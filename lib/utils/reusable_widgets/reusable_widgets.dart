@@ -21,7 +21,12 @@ Widget buildColorPalette(BuildContext context, BaseModel viewModel) {
       itemBuilder: (context, index) {
         return Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Center(child: _buildColorChooser(viewModel, colors[index])),
+          child: Center(
+            child: _buildColorChooser(
+              viewModel,
+              colors[index],
+            ),
+          ),
         );
       },
     ),
@@ -37,8 +42,12 @@ Widget buildBackgroundColorPalette(BuildContext context, BaseModel viewModel) {
     decoration: BoxDecoration(
       color: Colors.grey[100]!,
       borderRadius: const BorderRadius.only(
-        topRight: Radius.circular(16.0),
-        bottomRight: Radius.circular(16.0),
+        topRight: Radius.circular(
+          16.0,
+        ),
+        bottomRight: Radius.circular(
+          16.0,
+        ),
       ),
       boxShadow: [
         BoxShadow(
@@ -61,14 +70,20 @@ Widget buildBackgroundColorPalette(BuildContext context, BaseModel viewModel) {
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: _buildBackgroundColorChooser(
-                      viewModel, backgroundColors[index]),
+                    viewModel,
+                    backgroundColors[index],
+                  ),
                 );
               },
             ),
           ),
         Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: _buildSettingsIcon(viewModel),
+          padding: const EdgeInsets.all(
+            8.0,
+          ),
+          child: _buildSettingsIcon(
+            viewModel,
+          ),
         ),
       ],
     ),
@@ -80,7 +95,10 @@ Widget buildVerticalStrokeSlider(BaseModel viewModel) {
   return RotatedBox(
     quarterTurns: 3,
     child: Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+      padding: const EdgeInsets.symmetric(
+        horizontal: 8,
+        vertical: 3,
+      ),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(16),
@@ -95,9 +113,13 @@ Widget buildVerticalStrokeSlider(BaseModel viewModel) {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const RotatedBox(
+          RotatedBox(
             quarterTurns: 5,
-            child: Icon(Icons.line_weight_rounded, size: 24),
+            child: CustomIconButton(
+              icon: Icons.line_weight_rounded,
+              size: 18,
+              tooltip: pencilStrokeLabel,
+            ),
           ),
           const SizedBox(width: 8),
           SizedBox(
@@ -108,7 +130,9 @@ Widget buildVerticalStrokeSlider(BaseModel viewModel) {
               divisions: 19,
               value: strokeWidth,
               onChanged: (value) {
-                viewModel.updateStrokeWidth(value);
+                viewModel.updateStrokeWidth(
+                  value,
+                );
               },
             ),
           ),
@@ -122,7 +146,9 @@ Widget _buildColorChooser(BaseModel viewModel, Color color) {
   bool isSelected = AppColors.blackColor == color;
   return GestureDetector(
     onTap: () {
-      viewModel.setSelectedColor(color);
+      viewModel.setSelectedColor(
+        color,
+      );
     },
     child: Container(
       height: 36,
@@ -134,7 +160,9 @@ Widget _buildColorChooser(BaseModel viewModel, Color color) {
         boxShadow: [
           if (isSelected)
             BoxShadow(
-              color: color.withOpacity(0.5),
+              color: color.withOpacity(
+                0.5,
+              ),
               blurRadius: 8,
               spreadRadius: 1,
             ),
@@ -148,7 +176,9 @@ Widget _buildBackgroundColorChooser(BaseModel viewModel, Color color) {
   bool isSelected = AppColors.whiteColor == color;
   return GestureDetector(
     onTap: () {
-      viewModel.setSelectedBackGroundColor(color);
+      viewModel.setSelectedBackGroundColor(
+        color,
+      );
     },
     child: Container(
       height: 36,
@@ -160,7 +190,9 @@ Widget _buildBackgroundColorChooser(BaseModel viewModel, Color color) {
         boxShadow: [
           if (isSelected)
             BoxShadow(
-              color: color.withOpacity(0.5),
+              color: color.withOpacity(
+                0.5,
+              ),
               blurRadius: 8,
               spreadRadius: 1,
             ),
@@ -181,34 +213,22 @@ Widget _buildSettingsIcon(BaseModel viewModel) {
       decoration: BoxDecoration(
         color: Colors.grey[300],
         shape: BoxShape.circle,
-        border: Border.all(color: Colors.grey[500]!, width: 3),
+        border: Border.all(
+          color: Colors.grey[500]!,
+          width: 3,
+        ),
       ),
       child: Center(
         child: AnimatedSwitcher(
           duration: const Duration(milliseconds: 300),
-          child: Icon(
-            isExpanded ? Icons.arrow_back_ios_rounded : Iconsax.setting_44,
+          child: CustomIconButton(
+            icon: isExpanded ? Icons.arrow_back_ios_rounded : Iconsax.setting_44,
             key: ValueKey<bool>(isExpanded),
-            size: 20,
+            size: 18,
             color: Colors.black,
           ),
         ),
       ),
     ),
   );
-}
-
-
-class FullScreenToggle extends StatelessWidget {
-  final VoidCallback onPressed;
-
-  const FullScreenToggle({super.key, required this.onPressed});
-
-  @override
-  Widget build(BuildContext context) {
-    return FloatingActionButton(
-      onPressed: onPressed,
-      child: const Icon(Icons.fullscreen),
-    );
-  }
 }
