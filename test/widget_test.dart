@@ -1,3 +1,80 @@
+// import 'package:drawing_app/utils/imports/general_import.dart';
+// import 'package:flutter_test/flutter_test.dart';
+
+// void main() {
+//   group('Widget Tests', () {
+    
+//     testWidgets('DrawingBoard widget test', (WidgetTester tester) async {
+//       await tester.pumpWidget(const MaterialApp(
+//         home: const DrawingBoard(),
+//       ));
+      
+//       // Verify the presence of certain widgets
+//       expect(find.byType(AppBar), findsOneWidget);
+//       expect(find.byType(Scaffold), findsOneWidget);
+//       expect(find.byKey(const Key('drawingArea')), findsOneWidget);
+//       expect(find.byType(CustomIconButton), findsNWidgets(5));
+//       expect(find.byType(RepaintBoundary), findsOneWidget);
+//       expect(find.byType(Positioned), findsNWidgets(3)); // Adjust as per your widget count
+      
+//       // Example: Tap on an IconButton and verify behavior
+//       await tester.tap(find.byIcon(Iconsax.undo));
+//       await tester.pump();
+//       // Add expect statements to verify expected changes after tapping undo button
+//     });
+
+//     testWidgets('buildColorPalette widget test', (WidgetTester tester) async {
+//       await tester.pumpWidget(MaterialApp(
+//         home: Scaffold(body: buildColorPalette(null, null)), // Pass any required arguments
+//       ));
+      
+//       // Verify the presence of widgets inside the color palette
+//       expect(find.byType(Container), findsOneWidget); // Example, adjust as per your widget structure
+//       expect(find.byType(ListView), findsOneWidget);
+//       expect(find.byType(GestureDetector), findsNWidgets(colors.length)); // Assuming `colors` is defined
+//     });
+
+//     testWidgets('buildBackgroundColorPalette widget test', (WidgetTester tester) async {
+//       await tester.pumpWidget(MaterialApp(
+//         home: Scaffold(body: buildBackgroundColorPalette(null, null)), // Pass any required arguments
+//       ));
+      
+//       // Verify the presence of widgets inside the background color palette
+//       expect(find.byType(AnimatedContainer), findsOneWidget);
+//       expect(find.byType(Row), findsOneWidget);
+//       expect(find.byType(GestureDetector), findsOneWidget); // Example, adjust as per your widget structure
+//     });
+
+//     testWidgets('buildVerticalStrokeSlider widget test', (WidgetTester tester) async {
+//       await tester.pumpWidget(MaterialApp(
+//         home: Scaffold(body: buildVerticalStrokeSlider(null)), // Pass any required arguments
+//       ));
+      
+//       // Verify the presence of widgets inside the vertical stroke slider
+//       expect(find.byType(RotatedBox), findsOneWidget);
+//       expect(find.byType(Container), findsOneWidget);
+//       expect(find.byType(Slider), findsOneWidget); // Example, adjust as per your widget structure
+//     });
+
+//     testWidgets('CustomIconButton widget test', (WidgetTester tester) async {
+//       const icon = Iconsax.undo; // Example icon, adjust as per your implementation
+      
+//       await tester.pumpWidget(MaterialApp(
+//         home: Scaffold(body: CustomIconButton(icon: icon, onPressed: () {})), // Pass any required arguments
+//       ));
+      
+//       // Verify the presence and properties of the CustomIconButton
+//       expect(find.byType(IconButton), findsOneWidget);
+//       expect(find.byIcon(icon), findsOneWidget);
+//       expect(find.byType(Icon), findsOneWidget); // Example, adjust as per your widget structure
+      
+//       // Example: Tap the IconButton and verify onPressed behavior
+//       await tester.tap(find.byIcon(icon));
+//       // Add expect statements to verify expected behavior after tapping the button
+//     });
+    
+//   });
+// }
 
 
 

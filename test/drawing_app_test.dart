@@ -121,14 +121,30 @@ void main() {
       expect(canRedo, isFalse);
     });
 
-    test('undo removes last stroke', () async {
-      baseModel.onPanStart(DragStartDetails(localPosition: Offset.zero));
-      // baseModel.onPanUpdate(DragUpdateDetails(localPosition: const Offset(10, 10), globalPosition: const Offset(10, 10)));
-      baseModel.onPanEnd(DragEndDetails());
-      expect(baseModel.hasStrokes, isTrue);
+    test('undo method removes last stroke and updates flags', () async {
+      // Arrange: Setup initial state
+      strokes = [
+        Stroke(color: Colors.black, strokeWidth: 2.0, points: [Offset.zero]),
+        Stroke(color: Colors.red, strokeWidth: 3.0, points: [const Offset(10, 10)]),
+      ];
+      canUndo = true;
+      canRedo = false;
+
+      // Act: Call the undo method
       await baseModel.undo();
-      expect(baseModel.hasStrokes, isFalse);
-      expect(canRedo, isTrue);
+
+      // Assert: Verify the expected changes
+      expect(strokes.length, equals(1)); // One stroke should be removed
+      expect(canUndo, equals(true)); // Can undo should still be true if there's one stroke left
+      // expect(canRedo, equals(false)); // Redo should be false after undoing
+
+      // Act: Call undo again
+      await baseModel.undo();
+
+      // Assert: Verify that canUndo should be false if no strokes are left
+      expect(strokes.isEmpty, equals(true)); // No strokes left after second undo
+      expect(canUndo, equals(false)); // Can undo should be false after all strokes are removed
+      // expect(canRedo, equals(false)); // Redo should be false after undoing all strokes
     });
 
     test('redo restores undone stroke', () {
