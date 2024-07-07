@@ -18,7 +18,14 @@ class DrawingStorage {
       return [];
     }
     final strokesJson = json.decode(strokesJsonString) as List;
-    return strokesJson.map((strokeJson) => Stroke.fromJson(strokeJson)).toList();
+    return strokesJson
+        .map((strokeJson) => Stroke.fromJson(strokeJson))
+        .toList();
+  }
+
+  static Future<void> clearSavedDrawing() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.remove(_key);
   }
 
   static Future<bool> hasSavedDrawing() async {

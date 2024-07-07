@@ -119,6 +119,7 @@ Widget buildVerticalStrokeSlider(BaseModel viewModel) {
               icon: Icons.line_weight_rounded,
               size: 18,
               tooltip: pencilStrokeLabel,
+              color: Colors.black,
             ),
           ),
           const SizedBox(width: 8),
@@ -222,7 +223,8 @@ Widget _buildSettingsIcon(BaseModel viewModel) {
         child: AnimatedSwitcher(
           duration: const Duration(milliseconds: 300),
           child: CustomIconButton(
-            icon: isExpanded ? Icons.arrow_back_ios_rounded : Iconsax.setting_44,
+            icon:
+                isExpanded ? Icons.arrow_back_ios_rounded : Iconsax.setting_44,
             key: ValueKey<bool>(isExpanded),
             size: 18,
             color: Colors.black,

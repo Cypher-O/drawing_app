@@ -256,16 +256,16 @@ class BaseModel extends BaseViewModel {
   }
 
   /// Undoes the last drawing action.
-  void undo() {
+  Future<void> undo() async {
     if (strokes.isNotEmpty) {
       redoStack.add(
         strokes.removeLast(),
       );
       canRedo = true; // Enable redo after undoing
       canUndo = strokes.isNotEmpty; // Check if more undo are available
-      saveDrawing();
       notifyListeners();
     }
+    saveDrawing();
   }
 
   /// Redoes the last undone drawing action.
@@ -331,14 +331,16 @@ class BaseModel extends BaseViewModel {
       Navigator.pop(repaintBoundaryKey.currentContext!);
 
       // Show success message
-      _showSnackBar(repaintBoundaryKey.currentContext!, 'Drawing saved successfully!');
+      _showSnackBar(
+          repaintBoundaryKey.currentContext!, 'Drawing saved successfully!');
       return true;
     } catch (e) {
       // Close loading indicator
       Navigator.pop(repaintBoundaryKey.currentContext!);
 
       // Show error message
-      _showSnackBar(repaintBoundaryKey.currentContext!, 'Error saving drawing: ${e.toString()}');
+      _showSnackBar(repaintBoundaryKey.currentContext!,
+          'Error saving drawing: ${e.toString()}');
       return false;
     }
   }

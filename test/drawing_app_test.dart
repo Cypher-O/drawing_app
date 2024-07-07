@@ -4,7 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 class FakeTicker implements Ticker {
   FakeTicker(this._onTick);
   final TickerCallback _onTick;
-  
+
   @override
   void stop({bool canceled = false}) {}
 
@@ -27,22 +27,16 @@ class FakeTicker implements Ticker {
   String toString({bool debugIncludeStack = false}) => 'FakeTicker';
 
   @override
-  TickerFuture scheduleTick({bool rescheduling = false}) => TickerFuture.complete();
+  TickerFuture scheduleTick({bool rescheduling = false}) =>
+      TickerFuture.complete();
 
   @override
   void unscheduleTick() {}
 
   @override
-  void resetTimer() {}
-
-  @override
-  void unmuted() {}
-
-  @override
   String? debugLabel;
 
   @override
-  // TODO: implement shouldScheduleTick
   bool get shouldScheduleTick => true;
 
   @override
@@ -51,12 +45,9 @@ class FakeTicker implements Ticker {
   }
 
   @override
-  set muted(bool value) {
-    // TODO: implement muted
-  }
+  set muted(bool value) {}
 
   @override
-  // TODO: implement scheduled
   bool get scheduled => false;
 
   @override
@@ -78,7 +69,8 @@ void main() {
   // Ensure Flutter bindings are initialized for testing
   setUpAll(() async {
     TestWidgetsFlutterBinding.ensureInitialized();
-    SharedPreferences.setMockInitialValues({}); // Initialize SharedPreferences mock
+    SharedPreferences.setMockInitialValues(
+        {}); // Initialize SharedPreferences mock
   });
 
   setUp(() {
@@ -129,11 +121,12 @@ void main() {
       expect(canRedo, isFalse);
     });
 
-    test('undo removes last stroke', () {
+    test('undo removes last stroke', () async {
       baseModel.onPanStart(DragStartDetails(localPosition: Offset.zero));
+      // baseModel.onPanUpdate(DragUpdateDetails(localPosition: const Offset(10, 10), globalPosition: const Offset(10, 10)));
       baseModel.onPanEnd(DragEndDetails());
       expect(baseModel.hasStrokes, isTrue);
-      baseModel.undo();
+      await baseModel.undo();
       expect(baseModel.hasStrokes, isFalse);
       expect(canRedo, isTrue);
     });
@@ -173,6 +166,9 @@ void main() {
     });
 
     test('hasSavedDrawing returns correct value', () async {
+      // Clear any existing saved drawings
+      await DrawingStorage.clearSavedDrawing();
+
       expect(await DrawingStorage.hasSavedDrawing(), isFalse);
       await DrawingStorage.saveDrawing([
         Stroke(color: Colors.black, strokeWidth: 2.0, points: [Offset.zero])
@@ -181,7 +177,8 @@ void main() {
     });
 
     test('saveBackgroundColor and loadBackgroundColor persist color', () async {
-      const Color expectedColor = Colors.red;
+      const Color expectedColor =
+          Color(0xFFF44336); // Use Color instead of MaterialColor
 
       // Save the color
       await DrawingStorage.saveBackgroundColor(expectedColor);

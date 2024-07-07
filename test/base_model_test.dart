@@ -22,7 +22,7 @@ void main() {
       when(mockSharedPreferences.setString(any, any)).thenAnswer((_) async => true);
 
       // Create dummy strokes and color
-      List<Stroke> strokes = [Stroke(points: [Offset(0, 0)], color: Colors.black, strokeWidth: 2.0, )];
+      List<Stroke> strokes = [Stroke(points: [const Offset(0, 0)], color: Colors.black, strokeWidth: 2.0, )];
       Color backgroundColor = Colors.blue;
 
       // Save strokes and background color
