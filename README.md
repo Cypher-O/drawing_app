@@ -108,3 +108,7 @@ Please make sure to update tests as appropriate and adhere to the existing codin
 ## Contact
 
 If you have any questions, feel free to reach out to Olumide Awodeji at <awodejiolumidekolade@gmail.com>.
+
+## APK Download URL
+
+[Sketch App Download](https://tomato-drawing-app.s3.us-east-2.amazonaws.com/Sketch.apk)
