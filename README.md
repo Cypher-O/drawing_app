@@ -83,10 +83,6 @@ Contributions are welcome! Here's how you can contribute:
 
 Please make sure to update tests as appropriate and adhere to the existing coding style.
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## Acknowledgments
 
 - Flutter and Dart teams for providing an excellent framework and language.
@@ -94,19 +90,13 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## App Screenshots & Gif
 
-|     |     |     |
-|-----|-----|-----|
-| ![Image 1](/assets/screenshots/) | ![Image 2](image2.jpg) | ![Animated GIF](image3.gif) |
-| Image 1 | Image 2 | Animated GIF |
+| ![Image 1](/assets/screenshots/screenshot1.png) | ![Image 2](/assets/screenshots/screenshot2.png) |
+|:--:|:--:|
+| Image 1 | Image 2 |
 
-<!-- <table>
-  <tr>
-    <td align="center">
-      <img src="" alt="Drawing App" width="250">
-      <div>Drawing App</div>
-    </td>
-  </tr>
-</table> -->
+| ![Image 3](/assets/screenshots/screenshot3.png) | ![Animated GIF](/assets/gif/app.gif) |
+|:--:|:--:|
+| Image 3 | Animated GIF |
 
 ## Contact
 
