@@ -27,6 +27,13 @@ Before you begin, ensure you have met the following requirements:
 - flutter `v3.19.5 - mobile sdk`
 - stacked `state management`
 - iconsax `icon pack`
+- shared_preferences `local storage`
+- path_provider `file access`
+- gallery_saver `save images`
+- mockito `unit testing`
+- build_runner `code generation`
+- flutter_launcher_icons `app icon`
+- flutter_native_splash `splash screen`
 
 ## Installation
 
